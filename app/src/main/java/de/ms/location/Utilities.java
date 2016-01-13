@@ -72,12 +72,6 @@ public class Utilities{
 		}
 		return minuteLbl;
 	}
-	public static int convertToPx(Activity con, int dp) {
-	    // Get the screen's density scale
-	    final float scale = con.getResources().getDisplayMetrics().density;
-	    // Convert the dps to pixels, based on density scale
-	    return (int) (dp * scale + 0.5f);
-	}
 
 
 

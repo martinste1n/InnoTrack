@@ -1,9 +1,17 @@
 package wineme.de.innotrack;
 
+import android.Manifest;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 import de.ms.location.locationtools.LocationService;
 import de.ms.location.locationtools.PTNMELocationManager;
@@ -17,12 +25,12 @@ public class ServiceStatus extends AppCompatActivity {
         setContentView(R.layout.activity_service_status);
 
     }
-
     @Override
     protected void onStart() {
         super.onStart();
-        Intent myIntent = new Intent(this, LocationService.class);
-        startService(myIntent);
+
+
+
         me= this;
         PTNMELocationManager.LocationListener listener = new PTNMELocationManager.LocationListener() {
             @Override

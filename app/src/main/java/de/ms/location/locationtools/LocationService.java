@@ -51,22 +51,7 @@ public class LocationService extends Service implements
 
     public int onStartCommand(Intent intent, int flags, int startId) {
         //TODO: DExter Abfrage machen
-		Dexter.checkPermission(new PermissionListener() {
-			@Override
-			public void onPermissionGranted(PermissionGrantedResponse response) {
 
-			}
-
-			@Override
-			public void onPermissionDenied(PermissionDeniedResponse response) {
-
-			}
-
-			@Override
-			public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
-
-			}
-		}, Manifest.permission.ACCESS_FINE_LOCATION);
 		if(mGoogleApiClient!=null && (mGoogleApiClient.isConnected() || mGoogleApiClient.isConnecting())){
             Log.d(TAG,"Service already running...");
         }else{

@@ -29,7 +29,7 @@ public class LocationReceiver extends BroadcastReceiver {
         PTNMELocationManager.notifyListener(loc);
         prefs= PreferenceManager.getDefaultSharedPreferences(context);
 		long now = new Date().getTime();
-		if(now-prefs.getLong(LAST_POISITION_UPDATE, (long) 0)>1000l*30l){
+		if(now-prefs.getLong(LAST_POISITION_UPDATE, (long) 0)>1000l){
 			Log.d("PTEnabler", "New Location Update accepted!");
 			Utilities.openDBConnection().save2LocationHistory(loc);
 			editor = prefs.edit();
@@ -47,7 +47,7 @@ public class LocationReceiver extends BroadcastReceiver {
 		}
         
 		
-        if(!wasOpen)Utilities.closeDBConnection();
+
 		
 	}
 		

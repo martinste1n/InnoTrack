@@ -6,11 +6,11 @@ package wineme.de.innotrack;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.multidex.MultiDexApplication;
+
 
 import com.karumi.dexter.Dexter;
 import de.ms.location.Utilities;
-public class InnoApplication extends MultiDexApplication {
+public class InnoApplication extends Application {
 
 
     private SharedPreferences prefs;
