@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="wineme.de.innotrack">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
+        android:name=".InnoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,6 +19,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name="de.ms.location.locationtools.ClusterService"
+            android:enabled="true" />
+        <service
+            android:name="de.ms.location.locationtools.LocationService"
+            android:enabled="true"
+            />
+        <receiver android:name="de.ms.location.locationtools.LocationReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="de.ms.ptenabler.LOCATION_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="de.ms.location.locationtools.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
